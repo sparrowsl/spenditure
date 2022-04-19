@@ -7,6 +7,8 @@
 
   function addItem(item = {}) {
     item.itemID = generateItemId(); // Add a random id to the item
+    // if item does not have a price, set it to 0
+    item.itemPrice = item.itemPrice ? item.itemPrice : 0;
 
     $dates.forEach((date) => {
       if (date.date === $selectedDate) {
