@@ -7,7 +7,6 @@ const year = new Date().getFullYear();
 
 export const currentDate = `${year}-${month}-${day}`;
 export let selectedDate = writable("2022-04-12");
-export let selectedID = writable(1)
 
 
 export const dates = writable([

@@ -1,36 +1,28 @@
 <script>
-  import { dates, selectedID } from "./../stores/store.js";
+  import { dates, selectedDate } from "./../stores/store.js";
   import Button from "./shared/Button.svelte";
 
+  let newItem = {};
   const generateItemId = () => Math.ceil(Math.random() * 1000);
 
-  let newItem = {};
-  let isError;
+  function addItem(item = {}) {
+    item.itemID = generateItemId(); // Add a random id to the item
 
-  function addItem(item = {}, addToID) {
-    // Add a random id to the item
-    item.itemID = generateItemId();
+    $dates.forEach((date) => {
+      if (date.date === $selectedDate) {
+        date.items.push(item); // Update the user's spending items
 
-    $dates.forEach((user) => {
-      if (user.id === addToID) {
-        // Update the user's spending items
-        user.spendings.push(item);
-        // changed to 0 so Item can be displayed when changed back to the correct id
-        // Works like auto-refresh
-        $selectedID = 0;
-        $selectedID = addToID;
+        // Set date to empty string then set it to the current selected date. Works like auto-refresh
+        $selectedDate = "";
+        $selectedDate = date.date;
       }
     });
 
     newItem = {}; // Reset form input
   }
-  const day = new Date().getDate();
-  const month = new Date().getMonth() + 1;
-  const year = new Date().getFullYear();
-
 </script>
 
-<form on:submit|preventDefault={() => addItem(newItem, $selectedID)}>
+<form on:submit|preventDefault={() => addItem(newItem)}>
   <input
     type="text"
     bind:value={newItem.itemName}
@@ -45,20 +37,6 @@
   />
   <br />
   <Button type="submit">Add Item</Button>
-
-  {#if isError}
-    <p class="error">
-      <small>please fill out all the fields!</small>
-    </p>
-  {/if}
 </form>
 
-
-<style>
-  p.error {
-    color: red;
-    margin: 0;
-    padding: 0;
-    font-style: italic;
-  }
-</style>
+<style></style>
