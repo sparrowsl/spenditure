@@ -23,11 +23,6 @@ export const spenditures = writable([
         itemName: "Book",
         itemPrice: 150,
       },
-      {
-        itemID: 207,
-        itemName: "Chocolate",
-        itemPrice: 200,
-      },
     ]
     // }
   },
@@ -83,3 +78,13 @@ export const spenditures = writable([
     // }
   }
 ]);
+
+export let currentChoosenID = writable(1)
+
+function getUser(userID) {
+}
+
+function addItem(item = {}, addTo = {}) {
+  console.log(item);
+  console.log(addTo);
+}

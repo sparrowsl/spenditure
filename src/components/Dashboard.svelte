@@ -1,24 +1,15 @@
 <script>
-  import { spenditures } from "./../stores/store.js";
+  import { spenditures, currentChoosenID } from "./../stores/store.js";
 
-  let user = [];
-  let number;
+  export let user = [];
 
   function getUserData(userID) {
-    user = $spenditures.find((spendings) => spendings.id === userID);
-    console.log(user);
+    return $spenditures.find((spendings) => spendings.id === userID);
   }
-  $: getUserData(parseInt(number));
+  $: user = getUserData($currentChoosenID);
 </script>
 
-<div>
-  <select name="" id="" bind:value={number}>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-  </select>
-</div>
+
 
 <section>
   {#if user}
@@ -34,7 +25,7 @@
 
       {#if user.spendings}
         <tbody>
-          {#each user.spendings as userData}
+          {#each user.spendings as userData (userData.itemID)}
             <tr>
               <td>{userData.itemID}</td>
               <td>{userData.itemName}</td>
@@ -44,8 +35,6 @@
         </tbody>
       {/if}
     </table>
-  {:else}
-    <p>no User found in the database</p>
   {/if}
 </section>
 
