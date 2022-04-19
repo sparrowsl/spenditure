@@ -7,9 +7,10 @@
     return $spenditures.find((spendings) => spendings.id === userID);
   }
   $: user = getUserData($currentChoosenID);
+  $: total = user.spendings.reduce((totalPrice, currentItem) => {
+    return totalPrice + currentItem.itemPrice;
+  }, 0);  // 0 is the start value of totalPrice
 </script>
-
-
 
 <section>
   {#if user}
@@ -32,6 +33,11 @@
               <td>{userData.itemPrice}</td>
             </tr>
           {/each}
+          <tr>
+            <td>Total</td>
+            <td />
+            <td>{total.toFixed(2)}</td>
+          </tr>
         </tbody>
       {/if}
     </table>
