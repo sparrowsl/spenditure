@@ -1,13 +1,19 @@
 import { writable } from "svelte/store";
 
 
-export const spenditures = writable([
+const day = new Date().getDate();
+const month = new Date().getMonth() + 1;
+const year = new Date().getFullYear();
+
+export const currentDate = `${year}-${month}-${day}`;
+export let selectedDate = writable("2022-04-12");
+export let selectedID = writable(1)
+
+
+export const dates = writable([
   {
-    // "john": {
-    id: 1,
-    date: "Jan 12, 1999",
-    name: "John",
-    spendings: [
+    date: "2022-04-12",
+    items: [
       {
         itemID: 100,
         itemName: "Chocolate",
@@ -24,14 +30,10 @@ export const spenditures = writable([
         itemPrice: 150,
       },
     ]
-    // }
   },
   {
-    // "john": {
-    id: 2,
-    date: "June 12, 1899",
-    name: "Spencer",
-    spendings: [
+    date: "2022-04-13",
+    items: [
       {
         itemID: 200,
         itemName: "Milk",
@@ -43,14 +45,10 @@ export const spenditures = writable([
         itemPrice: 100,
       },
     ]
-    // }
   },
   {
-    // "john": {
-    id: 3,
-    date: "Jan 2, 1990",
-    name: "Jack",
-    spendings: [
+    date: "2022-04-19",
+    items: [
       {
         itemID: 210,
         itemName: "Spoon",
@@ -67,24 +65,14 @@ export const spenditures = writable([
         itemPrice: 1500,
       },
     ]
-    // }
   },
   {
-    // "john": {
-    id: 4,
-    date: "Dec 20, 2010",
-    name: "Martin",
-    spendings: []
-    // }
-  }
+    date: "2022-04-10",
+    items: []
+  },
 ]);
 
-export let currentChoosenID = writable(1)
+// localStorage.setItem("spenditures", dates)
 
-function getUser(userID) {
-}
-
-function addItem(item = {}, addTo = {}) {
-  console.log(item);
-  console.log(addTo);
-}
+// const items = JSON.stringify(localStorage.getItem("spenditures"))
+// console.log(items)

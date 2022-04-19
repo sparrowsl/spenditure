@@ -1,21 +1,18 @@
 <script>
-  import { spenditures, currentChoosenID } from "./../stores/store.js";
+  import { dates, selectedDate } from "./../stores/store.js";
 
-  export let user = [];
-
-  function getUserData(userID) {
-    return $spenditures.find((spendings) => spendings.id === userID);
-  }
-  $: user = getUserData($currentChoosenID);
-  $: total = user.spendings.reduce((totalPrice, currentItem) => {
+  $: choosenDate = $dates.find((date) => date.date === $selectedDate);
+  $: total = choosenDate.items.reduce((totalPrice, currentItem) => {
     return totalPrice + currentItem.itemPrice;
-  }, 0);  // 0 is the start value of totalPrice
+  }, 0); // 0 is the start value of totalPrice
+
+  // $: console.log(choosenDate);
 </script>
 
 <section>
-  {#if user}
+  {#if selectedDate}
     <table>
-      <caption>Spenditure items for {user.name}</caption>
+      <caption>Spenditure items for {$selectedDate}</caption>
       <thead>
         <tr>
           <th>Item ID</th>
@@ -24,13 +21,13 @@
         </tr>
       </thead>
 
-      {#if user.spendings}
+      {#if choosenDate.items}
         <tbody>
-          {#each user.spendings as userData (userData.itemID)}
+          {#each choosenDate.items as dateItems}
             <tr>
-              <td>{userData.itemID}</td>
-              <td>{userData.itemName}</td>
-              <td>{userData.itemPrice}</td>
+              <td>{dateItems.itemID}</td>
+              <td>{dateItems.itemName}</td>
+              <td>{dateItems.itemPrice}</td>
             </tr>
           {/each}
           <tr>
