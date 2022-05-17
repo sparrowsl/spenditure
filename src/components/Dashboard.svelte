@@ -1,72 +1,53 @@
 <script>
-  import { dates, selectedDate } from "./../stores/store.js";
+  import { items } from "../stores/store.js";
 
-  $: choosenDate = $dates.find((date) => date.date === $selectedDate);
-  $: total = choosenDate.items.reduce((totalPrice, currentItem) => {
-    return totalPrice + currentItem.itemPrice;
-  }, 0); // 0 is the start value of totalPrice
+  // $: total = choosenDate.items.reduce((totalPrice, currentItem) => {
+  //   return totalPrice + currentItem.itemPrice;
+  // }, 0); // 0 is the start value of totalPrice
 
-  function deleteItem(itemToDelete) {
-    // console.log(itemToDelete);
+  function deleteItem(item) {
+    $items = $items.filter((it) => it.id !== item.id);
+  }
 
-    $dates.forEach((date) => {
-
-      if (date.date === choosenDate.date) {
-        // Get the items that were not deleted
-        const filtered = date.items.filter((item) => item.itemID !== itemToDelete.itemID)
-        date.items = filtered // Update the items in the list
-
-        // Set date to empty string then set it to the current selected date. Works like auto-refresh
-        $selectedDate = "";
-        $selectedDate = date.date;
-      }
-    });
+  function editItem(item) {
+    console.log(item);
   }
 </script>
 
-<section>
-  {#if selectedDate}
-    <table>
-      <caption>Spenditure items for {$selectedDate}</caption>
-      <thead>
-        <tr>
-          <th>Item ID</th>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
+<section class="mt-4 overflow-x-scroll">
+  <table class="w-full table-auto border-collapse">
+    <thead class="bg-slate-100">
+      <tr class="text-left">
+        <th class="p-2">Name</th>
+        <th class="p-2">Price</th>
+        <th class="p-2">Date</th>
+        <th class="p-2" />
+        <th class="p-2" />
+      </tr>
+    </thead>
 
-      {#if choosenDate.items}
-        <tbody>
-          {#each choosenDate.items as dateItems (dateItems.itemID)}
-            <tr>
-              <td>{dateItems.itemID}</td>
-              <td>{dateItems.itemName}</td>
-              <td>{dateItems.itemPrice}</td>
-              <td class="delete" on:click={() => deleteItem(dateItems)}>X</td>
-            </tr>
-          {/each}
-          <tr>
+    <tbody class="">
+      {#each $items as item (item.id)}
+        <tr class="text-sm md:text-lg">
+          <td class="p-2">{item.name}</td>
+          <td class="p-2">{item.price.toLocaleString("en-US")}</td>
+          <td class="p-2">{item.date}</td>
+          <td class="px-4 py-2 text-blue-400" on:click={() => editItem(item)}
+            ><i class="gg-pen" /></td
+          >
+          <td class="px-4 py-2 text-red-500" on:click={() => deleteItem(item)}
+            ><i class="gg-close-o" /></td
+          >
+        </tr>
+      {/each}
+      <!-- <tr>
             <td>Total</td>
             <td />
             <td>{total.toFixed(2)}</td>
-          </tr>
-        </tbody>
-      {/if}
-    </table>
-  {/if}
+          </tr> -->
+    </tbody>
+  </table>
 </section>
 
 <style>
-  caption {
-    width: fit-content;
-  }
-  .delete {
-    font-weight: bold;
-    color: red;
-    padding-left: 2em;
-  }
-  .delete:hover {
-    cursor: pointer;
-  }
 </style>

@@ -1,73 +1,55 @@
 import { writable } from "svelte/store";
 
+export function getCurrentDate() {
+  const day = new Date().getDate();
+  const month = new Date().getMonth() + 1;
+  const year = new Date().getFullYear();
 
-const day = new Date().getDate();
-const month = new Date().getMonth() + 1;
-const year = new Date().getFullYear();
+  return `${year}-${month}-${day}`;
+}
 
-export const currentDate = `${year}-${month}-${day}`;
-export let selectedDate = writable("2022-04-12");
-
-
-export const dates = writable([
+export const items = writable([
   {
+    id: 100,
+    name: "Chocolate",
+    price: 200,
     date: "2022-04-12",
-    items: [
-      {
-        itemID: 100,
-        itemName: "Chocolate",
-        itemPrice: 200,
-      },
-      {
-        itemID: 102,
-        itemName: "Pen",
-        itemPrice: 10,
-      },
-      {
-        itemID: 120,
-        itemName: "Book",
-        itemPrice: 150,
-      },
-    ]
   },
   {
-    date: "2022-04-13",
-    items: [
-      {
-        itemID: 200,
-        itemName: "Milk",
-        itemPrice: 300,
-      },
-      {
-        itemID: 101,
-        itemName: "Sugar",
-        itemPrice: 100,
-      },
-    ]
+    id: 102,
+    name: "Pen",
+    price: 10,
+    date: "2022-04-12",
   },
   {
-    date: "2022-04-19",
-    items: [
-      {
-        itemID: 210,
-        itemName: "Spoon",
-        itemPrice: 2000,
-      },
-      {
-        itemID: 190,
-        itemName: "Car",
-        itemPrice: 100,
-      },
-      {
-        itemID: 400,
-        itemName: "Book",
-        itemPrice: 1500,
-      },
-    ]
+    id: 200,
+    name: "Milk",
+    price: 300,
+    date: "2022-04-12",
   },
   {
-    date: "2022-04-10",
-    items: []
+    id: 101,
+    name: "Sugar",
+    price: 100,
+    date: "2022-04-12",
+  },
+  {
+    id: 210,
+    name: "Spoon",
+    price: 2000,
+    date: "2022-04-12",
+  },
+  {
+    id: 190,
+    name: "Car",
+    price: 100,
+    date: "2022-04-12",
+  },
+  {
+    id: 400,
+    name: "Book",
+    price: 1500,
+    date: "2022-04-12",
   },
 ]);
 
