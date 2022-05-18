@@ -1,11 +1,12 @@
 <script>
-  import { items, getCurrentDate } from "../stores/store.js";
+  import { items, getCurrentDate, setLocal } from "../stores/store.js";
 
   let newItem = {};
   const generateItemId = () => Math.ceil(Math.random() * 1000);
 
   function addItem(item) {
     item.id = generateItemId(); // Add a random id to the item
+
     // if item does not have a price, set it to 0
     item.price = item.price ? item.price : 0;
     item.date = getCurrentDate(); // add the current date to the item
@@ -13,6 +14,9 @@
     // Add item to items
     $items = [item, ...$items];
     newItem = {}; // Reset form input
+
+    // Update the local storage
+    setLocal("spenditures", $items);
   }
 </script>
 

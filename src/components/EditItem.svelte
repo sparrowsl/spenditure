@@ -1,5 +1,11 @@
 <script>
-  import { items, itemToEdit, showEditModal } from "../stores/store.js";
+  import {
+    items,
+    itemToEdit,
+    setLocal,
+    showEditModal,
+  } from "../stores/store.js";
+
   let newItems = [];
 
   function updateItem() {
@@ -13,6 +19,9 @@
     // update the items in the list
     $items = [...newItems];
     $showEditModal = false;
+
+    // Update the local storage
+    setLocal("spenditures", $items);
   }
 </script>
 

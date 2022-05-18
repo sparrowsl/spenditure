@@ -1,26 +1,19 @@
 <script>
-  import { onMount } from "svelte";
-
   import {
     items,
     itemToEdit,
+    setLocal,
     showEditModal,
-    getLocal,
   } from "../stores/store.js";
 
-  let data = getLocal("spenditures");
-  if (data === null) data = [];
-  console.log(data);
-
-  let total = 0;
-  // $: if ($items !== []) {
-  //   total = $items.reduce((totalPrice, item) => {
-  //     return totalPrice + item.price;
-  //   }, 0); // 0 is the start value of totalPrice
-  // }
+  // Re-calculates the total price everytime an item is added/updated
+  $: total = $items.reduce((totalPrice, item) => {
+    return totalPrice + item.price;
+  }, 0); // 0 is the start value of totalPrice
 
   function deleteItem(item) {
     $items = $items.filter((it) => it.id !== item.id);
+    setLocal("spenditures", $items);
   }
 
   function editItem(item) {
@@ -39,8 +32,7 @@
         <th class="p-2">Name</th>
         <th class="p-2">Price</th>
         <th class="p-2">Date</th>
-        <th class="p-2" />
-        <th class="p-2" />
+        <th class="p-2">Edit/Delete</th>
       </tr>
     </thead>
 
@@ -50,12 +42,22 @@
           <td class="p-2">{item.name}</td>
           <td class="p-2">{item.price.toLocaleString("en-US")}</td>
           <td class="p-2">{item.date}</td>
-          <td class="px-4 py-2 text-blue-500" on:click={() => editItem(item)}
-            ><i class="gg-pen" />edit</td
-          >
-          <td class="px-4 py-2 text-red-500" on:click={() => deleteItem(item)}
-            ><i class="gg-close-o" />delete</td
-          >
+          <td class="flex items-center gap-3">
+            <!-- Edit button -->
+            <button
+              class="edit px-4 py-2 text-blue-500"
+              on:click={() => editItem(item)}
+            >
+              <i class="gg-pen" />
+            </button>
+            <!-- Delete button -->
+            <button
+              class="delete px-4 py-2 text-red-500"
+              on:click={() => deleteItem(item)}
+            >
+              <i class="gg-close-o" />
+            </button>
+          </td>
         </tr>
       {/each}
     </tbody>
