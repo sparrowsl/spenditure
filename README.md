@@ -1,11 +1,11 @@
 # Spenditure
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+_Note that you will need to have [Node.js](https://nodejs.org) installed._
 
 ## Get started
 
 Clone repo
+
 ```bash
 git clone https:www.github.com/benjithorpe/spenditure.git
 ```
@@ -23,6 +23,12 @@ npm install
 npm run dev
 ```
 
+start tailwind auto watch in a different terminal
+
+```bash
+npx tailwindcss -i ./src/tailwind.css -o ./public/index.css
+```
+
 ## Building and running in production mode
 
 To create an optimised version of the app:
@@ -31,12 +37,11 @@ To create an optimised version of the app:
 npm run build
 ```
 
-
 ## Single-page app mode
 
 By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
 
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
+If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for _any_ path. You can make it so by editing the `"start"` command in package.json:
 
 ```js
 "start": "sirv public --single"

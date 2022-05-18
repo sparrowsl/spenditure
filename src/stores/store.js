@@ -8,7 +8,19 @@ export function getCurrentDate() {
   return `${year}-${month}-${day}`;
 }
 
-export const items = writable([
+export function getLocal(key) {
+  return JSON.stringify(localStorage.getItem("spenditures"));
+}
+
+export function setLocal(key, value) {
+  localStorage.setItem(key, value);
+}
+
+export let itemToEdit = writable({});
+export let showEditModal = writable(false);
+export const items = writable([]);
+
+/*
   {
     id: 100,
     name: "Chocolate",
@@ -33,27 +45,5 @@ export const items = writable([
     price: 100,
     date: "2022-04-12",
   },
-  {
-    id: 210,
-    name: "Spoon",
-    price: 2000,
-    date: "2022-04-12",
-  },
-  {
-    id: 190,
-    name: "Car",
-    price: 100,
-    date: "2022-04-12",
-  },
-  {
-    id: 400,
-    name: "Book",
-    price: 1500,
-    date: "2022-04-12",
-  },
-]);
 
-// localStorage.setItem("spenditures", dates)
-
-// const items = JSON.stringify(localStorage.getItem("spenditures"))
-// console.log(items)
+*/

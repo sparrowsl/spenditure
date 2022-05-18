@@ -12,7 +12,7 @@
 
     // Add item to items
     $items = [item, ...$items];
-    // newItem = {}; // Reset form input
+    newItem = {}; // Reset form input
   }
 </script>
 
