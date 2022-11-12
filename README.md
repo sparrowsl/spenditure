@@ -1,48 +1,38 @@
-# Spenditure
+# create-svelte
 
-_Note that you will need to have [Node.js](https://nodejs.org) installed._
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Get started
+## Creating a project
 
-Clone repo
-
-```bash
-git clone https:www.github.com/benjithorpe/spenditure.git
-```
-
-Install the dependencies...
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-cd spenditure
-npm install
+# create a new project in the current directory
+npm create svelte@latest
+
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
 
-...then start [Rollup](https://rollupjs.org):
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-start tailwind auto watch in a different terminal
+## Building
 
-```bash
-npx tailwindcss -i ./src/tailwind.css -o ./public/index.css
-```
-
-## Building and running in production mode
-
-To create an optimised version of the app:
+To create a production version of your app:
 
 ```bash
 npm run build
 ```
 
-## Single-page app mode
+You can preview the production build with `npm run preview`.
 
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for _any_ path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
