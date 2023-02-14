@@ -5,7 +5,7 @@
 
 <aside class="block h-screen max-w-full bg-white p-5 pl-14">
 	<!-- Logo -->
-	<div class="font-mono text-xl text-gray-700">
+	<div class="text-xl text-gray-700">
 		<a href="/">Spenditure</a>
 	</div>
 
@@ -19,7 +19,7 @@
 					<a
 						href="/dashboard"
 						class="{activeItem === item
-							? 'text-white rounded bg-blue-500 hover:bg-blue-700'
+							? 'rounded bg-blue-500 text-white hover:bg-blue-700'
 							: 'text-gray-600'} block p-2 text-sm"
 					>
 						{item}
