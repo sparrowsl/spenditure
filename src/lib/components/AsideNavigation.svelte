@@ -1,8 +1,6 @@
 <aside class="block h-screen max-w-full bg-white p-5 pl-14">
 	<!-- Logo -->
-	<div class="text-xl text-gray-700">
-		<a href="/">Spenditure</a>
-	</div>
+	<a href="/" class="text-xl text-gray-700">Spenditure</a>
 
 	<!-- Sidebar menu -->
 	<div class="mt-10">

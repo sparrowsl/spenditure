@@ -8,6 +8,3 @@
 
 <!-- Table to display Items -->
 <ItemsTable />
-
-<style>
-</style>
