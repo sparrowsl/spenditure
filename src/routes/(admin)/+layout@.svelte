@@ -5,7 +5,7 @@
 <div class="grid grid-cols-[minmax(200px,max-content),1fr]">
 	<AsideNavigation />
 
-	<main>
+	<main class="h-screen overflow-y-scroll">
 		<nav class="flex min-h-[10vh] items-center justify-between bg-white px-5">
 			<h3 class="font-bold text-gray-700">Welcome Admin!</h3>
 			<a href="/admin" class="text-sm text-red-600">logout</a>

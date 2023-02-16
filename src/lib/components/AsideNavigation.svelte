@@ -5,7 +5,7 @@
 
 	const links = [
 		{ href: '/dashboard', text: 'Home' },
-		{ href: '/employee', text: 'Employees' },
+		{ href: '/employees', text: 'Employees' },
 		{ href: '/products', text: 'Products' },
 		{ href: '/categories', text: 'Category' }
 	];
@@ -19,7 +19,7 @@
 	<section class="mt-10">
 		<h3 class="mb-3 text-xs uppercase text-gray-400">Menu</h3>
 
-		<div class="grid gap-2">
+		<div class="grid gap-1">
 			{#each links as { text, href }}
 				<a
 					{href}
