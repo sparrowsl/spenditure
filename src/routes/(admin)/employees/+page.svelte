@@ -10,7 +10,7 @@
 
 	<table class="mt-10 w-full table-auto">
 		<caption class="mb-3 max-w-4xl text-xs text-white">
-			<a href="/employee" class="ml-auto block w-fit rounded-sm bg-gray-600 p-2">Add Employee</a>
+			<a href="/employees" class="ml-auto block w-fit rounded-sm bg-gray-600 p-2">Add Employee</a>
 		</caption>
 
 		<thead>
