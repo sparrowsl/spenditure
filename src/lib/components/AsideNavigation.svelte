@@ -1,16 +1,35 @@
-<aside class="block h-screen max-w-full bg-white p-5 pl-14">
-	<!-- Logo -->
-	<a href="/" class="text-xl text-gray-700">Spenditure</a>
+<script>
+	import { page } from '$app/stores';
 
-	<!-- Sidebar menu -->
-	<div class="mt-10">
+	$: path = $page.url.pathname;
+
+	const links = [
+		{ href: '/dashboard', text: 'Home' },
+		{ href: '/employee', text: 'Employees' },
+		{ href: '/products', text: 'Products' },
+		{ href: '/categories', text: 'Category' }
+	];
+</script>
+
+<aside class="h-screen max-w-full bg-white p-5 pl-14">
+	<!-- Logo -->
+	<a href="/" class="block text-xl text-gray-700">Spenditure</a>
+
+	<!-- Sidebar Menu -->
+	<section class="mt-10">
 		<h3 class="mb-3 text-xs uppercase text-gray-400">Menu</h3>
 
 		<div class="grid gap-2">
-			<a href="/dashboard" class="block rounded bg-blue-700 py-1 px-3 text-sm text-white">Home</a>
-			<a href="/employee" class="block py-1 px-3 text-sm text-gray-600">Employees</a>
-			<a href="/admin" class="block py-1 px-3 text-sm text-gray-600">Categories</a>
-			<a href="/admin" class="block py-1 px-3 text-sm text-gray-600">Products</a>
+			{#each links as { text, href }}
+				<a
+					{href}
+					class="{path === href
+						? 'rounded-sm bg-blue-700 text-white'
+						: 'text-gray-600 hover:bg-gray-100'} block p-2 text-sm "
+				>
+					{text}
+				</a>
+			{/each}
 		</div>
-	</div>
+	</section>
 </aside>

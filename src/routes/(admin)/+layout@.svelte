@@ -2,7 +2,7 @@
 	import AsideNavigation from '../../lib/components/AsideNavigation.svelte';
 </script>
 
-<div class="grid grid-cols-[max-content,1fr]">
+<div class="grid grid-cols-[minmax(200px,max-content),1fr]">
 	<AsideNavigation />
 
 	<main>
