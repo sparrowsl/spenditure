@@ -19,6 +19,11 @@
 			</div>
 
 			<div>
+				<label for="" class="text-gray-700">Address</label>
+				<Input name="address" placeholder="Address" />
+			</div>
+
+			<div>
 				<label for="" class="text-gray-700">Contact</label>
 				<Input type="tel" name="contact" placeholder="Contact" />
 			</div>

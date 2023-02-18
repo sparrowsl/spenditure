@@ -10,14 +10,14 @@
 
 	<table class="mt-10 w-full table-auto">
 		<caption class="mb-3 max-w-4xl text-xs text-white">
-			<a href="/products" class="ml-auto block w-fit rounded-sm bg-gray-600 p-2">Add Product</a>
+			<a href="/products/add" class="ml-auto block w-fit rounded-sm bg-gray-600 p-2">Add Product</a>
 		</caption>
 
 		<thead>
 			<tr class="text-left text-gray-700">
 				<th>ID</th>
 				<th>Name</th>
-				<th>Price</th>
+				<th>Price <small>(Le)</small></th>
 				<th>In Stock</th>
 				<th>Category</th>
 			</tr>
