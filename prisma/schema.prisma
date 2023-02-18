@@ -26,5 +26,5 @@ model Product {
   name     String  @unique
   price    Int
   category String? @default("Drinks")
-  inStock  Int?    @default(0)
+  inStock  Int     @default(0)
 }

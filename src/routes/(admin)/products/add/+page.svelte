@@ -21,7 +21,7 @@
 
 			<div>
 				<label for="" class="text-gray-700">In Stock</label>
-				<Input type="number" name="in_stock" placeholder="How many in stock" required="true" />
+				<Input type="number" name="inStock" placeholder="How many in stock" required="true" />
 			</div>
 
 			<div>
