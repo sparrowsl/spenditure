@@ -28,14 +28,12 @@
 				<label for="" class="text-gray-700">Category</label>
 				<select
 					name="category"
-					id=""
 					class="block w-full rounded border border-gray-200 p-2 text-sm text-gray-600"
 				>
 					{#each $categories as category}
 						<option value={category.name}>{category.name}</option>
 					{/each}
 				</select>
-				<!-- <Input type="tel" name="contact" placeholder="Contact" /> -->
 			</div>
 
 			<div class="flex gap-10">
