@@ -10,22 +10,27 @@
 		<fieldset class="grid gap-3">
 			<div>
 				<label for="" class="text-gray-700">Name</label>
-				<Input name="name" placeholder="Full name" required={true} />
+				<Input name="name" placeholder="Full name" />
 			</div>
 
 			<div>
 				<label for="" class="text-gray-700">Email</label>
-				<Input type="email" name="email" placeholder="Email (optional)" />
+				<Input type="email" name="email" placeholder="Email (optional)" required={false} />
 			</div>
 
 			<div>
 				<label for="" class="text-gray-700">Address</label>
-				<Input name="address" placeholder="Address" />
+				<Input name="address" placeholder="Address (optional)" required={false} />
 			</div>
 
 			<div>
 				<label for="" class="text-gray-700">Contact</label>
 				<Input type="tel" name="contact" placeholder="Contact" />
+			</div>
+
+			<div>
+				<label for="" class="text-gray-700">Password</label>
+				<Input type="password" name="password" placeholder="********" />
 			</div>
 
 			<div class="flex gap-10">

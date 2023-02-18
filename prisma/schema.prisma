@@ -11,13 +11,14 @@ datasource db {
 }
 
 model Employee {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  name    String
-  email   String?
-  contact String
-  address String?
-  joined  DateTime @default(now())
-  isAdmin Boolean  @default(false)
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  email    String?  @unique
+  contact  String   @unique
+  address  String?
+  password String
+  joined   DateTime @default(now())
+  isAdmin  Boolean  @default(false)
 }
 
 model Product {
