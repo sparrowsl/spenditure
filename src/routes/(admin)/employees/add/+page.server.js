@@ -1,11 +1,7 @@
 import prisma from '../../../../lib/utils/prisma';
 
 /** @type {import('./$types').PageLoad} */
-export async function load({}) {
-	const employees = await prisma.employee.findMany();
-	console.log(employees);
-	return { employees };
-}
+export async function load({}) {}
 
 /** @type {import('./$types').Actions} */
 export const actions = {

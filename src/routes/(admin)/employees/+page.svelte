@@ -1,6 +1,10 @@
 <script>
+	import dayjs from 'dayjs';
 	import { employees } from '../../../lib/stores/employees';
 	import SearchEmployee from './SearchEmployee.svelte';
+
+	export let data;
+	console.log(data.employees);
 </script>
 
 <section class="min-h-[90vh] bg-white p-5">
@@ -34,7 +38,9 @@
 					<td class="py-3 text-sm text-gray-600">{employee.email}</td>
 					<td class="py-3 text-sm text-gray-600">{employee.contact}</td>
 					<td class="py-3 text-sm text-gray-600">{employee.status}</td>
-					<td class="py-3 text-sm text-gray-600">{employee.joined}</td>
+					<td class="py-3 text-sm text-gray-600">
+						{dayjs(employee.joined).format('MMMM DD, YYYY')}
+					</td>
 				</tr>
 			{/each}
 		</tbody>
