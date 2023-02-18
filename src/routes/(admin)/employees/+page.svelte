@@ -5,7 +5,6 @@
 
 	export let data;
 	$employees = data.employees;
-	console.log($employees);
 </script>
 
 <section class="min-h-[90vh] bg-white p-5">
