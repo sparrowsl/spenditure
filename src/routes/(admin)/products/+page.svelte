@@ -1,6 +1,9 @@
 <script>
 	import { products } from '../../../lib/stores/products';
 	import SearchProduct from './SearchProduct.svelte';
+
+	export let data;
+	$products = data.products;
 </script>
 
 <section class="min-h-screen bg-white p-5">

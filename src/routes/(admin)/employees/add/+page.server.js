@@ -14,19 +14,16 @@ export const actions = {
 		const address = form.get('address');
 		const password = form.get('password');
 
-		// console.log({ name, email, contact, address, password });
-
-		const employee = await prisma.employee.create({
+		await prisma.employee.create({
 			data: {
 				name,
 				email,
 				address,
 				contact,
-				password
-				// isAdmin: true
+				password,
+				isAdmin: true
 			}
 		});
-		console.log(employee);
-		throw redirect(200, '/employees');
+		throw redirect(302, '/employees');
 	}
 };
