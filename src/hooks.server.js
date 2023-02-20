@@ -6,13 +6,13 @@ export const handle = async ({ event, resolve }) => {
 
 	if (!session) return await resolve(event);
 
-	const user = await prisma.employee.findUnique({
+	const employee = await prisma.employee.findUnique({
 		where: {
 			id: session
 		}
 	});
 
-	if (user) event.locals.user = user;
+	if (employee) event.locals.user = employee;
 
 	return await resolve(event);
 };

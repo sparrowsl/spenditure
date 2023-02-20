@@ -1,25 +1,46 @@
 <script>
+	import { enhance, applyAction } from '$app/forms';
 	import Button from '../lib/components/shared/Button.svelte';
 	import Input from '../lib/components/shared/Input.svelte';
+
+	export let form;
+	let validating = false;
 </script>
 
 <main class="grid h-screen place-content-center">
-	<form action="" class="rounded bg-white p-5 shadow-md">
+	<form
+		action=""
+		method="POST"
+		class="rounded bg-white p-5 shadow-md"
+		use:enhance={({ form }) => {
+			validating = true;
+			return async ({ result, update }) => {
+				if (result.type === 'success') form.reset();
+				if (result.type === 'invalid') await applyAction(form);
+				update();
+				validating = false;
+			};
+		}}
+	>
 		<legend class="text-center text-xl font-bold">Login</legend>
 
 		<fieldset class="flex flex-col gap-5 p-10">
 			<div>
-				<label for="" class="block">Username</label>
-				<Input placeholder="john" name="username" required="true" />
+				<label for="">Username</label>
+				<Input placeholder="john" name="username" />
 			</div>
 
 			<div>
-				<label for="" class="block">Password</label>
-				<Input type="password" placeholder="********" name="password" required="true" />
+				<label for="">Password</label>
+				<Input type="password" placeholder="********" name="password" />
 			</div>
 
+			{#if form?.error}
+				<p class="text-sm text-red-500">{form?.error}</p>
+			{/if}
+
 			<Button type="submit" classes="text-center w-full text-sm p-2 rounded bg-gray-600 text-white">
-				Login
+				{validating ? '...' : 'Login'}
 			</Button>
 		</fieldset>
 	</form>
