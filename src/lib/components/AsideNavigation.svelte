@@ -7,7 +7,7 @@
 		{ href: '/dashboard', text: 'Home' },
 		{ href: '/employees', text: 'Employees' },
 		{ href: '/products', text: 'Products' },
-		{ href: '/categories', text: 'Category' }
+		{ href: '/sales', text: 'Sales' }
 	];
 </script>
 

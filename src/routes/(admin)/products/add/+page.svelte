@@ -1,7 +1,8 @@
 <script>
 	import Input from '../../../../lib/components/shared/Input.svelte';
 	import Button from '../../../../lib/components/shared/Button.svelte';
-	import { categories } from '../../../../lib/stores/categories';
+
+	const categories = ['Foods', 'Drinks'];
 </script>
 
 <section class="min-h-[90vh] bg-white p-5">
@@ -30,8 +31,8 @@
 					name="category"
 					class="block w-full rounded border border-gray-200 p-2 text-sm text-gray-600"
 				>
-					{#each $categories as category}
-						<option value={category.name}>{category.name}</option>
+					{#each categories as category}
+						<option value={category}>{category}</option>
 					{/each}
 				</select>
 			</div>

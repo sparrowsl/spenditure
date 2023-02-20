@@ -4,6 +4,11 @@ import prisma from '../../../lib/utils/prisma';
 export async function load({}) {
 	return {
 		totalEmployees: await prisma.employee.count(),
-		totalProducts: await prisma.product.count()
+		totalProducts: await prisma.product.count(),
+		totalCashSpent: await prisma.product.findMany({
+			select: {
+				price: true
+			}
+		})
 	};
 }
