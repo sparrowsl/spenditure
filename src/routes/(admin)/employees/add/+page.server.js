@@ -20,8 +20,8 @@ export const actions = {
 				email,
 				address,
 				contact,
-				password,
-				isAdmin: true
+				password
+				// isAdmin: true
 			}
 		});
 		throw redirect(302, '/employees');
