@@ -1,30 +1,28 @@
 <script>
-	import { enhance, applyAction } from '$app/forms';
-	import Button from '../lib/components/shared/Button.svelte';
-	import Input from '../lib/components/shared/Input.svelte';
+	import { enhance } from "$app/forms";
+	import Button from "$lib/components/Button.svelte";
+	import Input from "$lib/components/Input.svelte";
 
-	export let form;
-	let validating = false;
+	/** @type {import("./$types").PageData}*/
+	export let data;
 </script>
 
-<main class="grid h-screen place-content-center">
+<main class="h-screen grid place-content-center">
 	<form
 		action=""
 		method="POST"
-		class="rounded bg-white p-5 shadow-md"
-		use:enhance={({ form }) => {
-			validating = true;
+		class="bg-white rounded shadow-md p-5"
+		use:enhance={({ formElement }) => {
 			return async ({ result, update }) => {
-				if (result.type === 'success') form.reset();
-				if (result.type === 'invalid') await applyAction(form);
+				if (result.type === "success") formElement.reset();
+				// if (result.type === "invalid") await applyAction(form);
 				update();
-				validating = false;
 			};
 		}}
 	>
-		<legend class="text-center text-xl font-bold">Login</legend>
+		<legend class="font-bold text-center text-xl">Login</legend>
 
-		<fieldset class="flex flex-col gap-5 p-10">
+		<fieldset class="flex flex-col p-10 gap-5">
 			<div>
 				<label for="">Username</label>
 				<Input placeholder="john" name="username" />
@@ -35,13 +33,11 @@
 				<Input type="password" placeholder="********" name="password" />
 			</div>
 
-			{#if form?.error}
-				<p class="text-sm text-red-500">{form?.error}</p>
+			{#if data?.error}
+				<p class="text-sm text-red-500">{data?.error}</p>
 			{/if}
 
-			<Button type="submit" classes="text-center w-full text-sm p-2 rounded bg-gray-600 text-white">
-				{validating ? '...' : 'Login'}
-			</Button>
+			<Button type="submit" classes="text-center w-full text-sm p-2 rounded bg-gray-600 text-white">Login</Button>
 		</fieldset>
 	</form>
 </main>

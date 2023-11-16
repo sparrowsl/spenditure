@@ -1,31 +1,40 @@
 {
-	"name": "spenditure",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"lint": "prettier --plugin-search-dir . --check .",
-		"format": "prettier --plugin-search-dir . --write ."
-	},
-	"devDependencies": {
-		"@iconify/svelte": "^3.0.0",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.0.0",
-		"autoprefixer": "^10.4.13",
-		"postcss": "^8.4.18",
-		"prettier": "^2.6.2",
-		"prettier-plugin-svelte": "^2.7.0",
-		"prettier-plugin-tailwindcss": "^0.2.2",
-		"prisma": "^4.10.1",
-		"svelte": "^3.44.0",
-		"tailwindcss": "^3.2.2",
-		"vite": "^4.0.0"
-	},
-	"type": "module",
-	"dependencies": {
-		"@prisma/client": "^4.10.1",
-		"dayjs": "^1.11.7"
-	}
+  "name": "spenditure",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+    "test": "vitest run",
+    "lint": "prettier --plugin-search-dir . --check .",
+    "format": "prettier --plugin-search-dir . --write .",
+    "migrate": "drizzle-kit generate:sqlite",
+    "db:push": "drizzle-kit push:sqlite"
+  },
+  "devDependencies": {
+    "@julr/unocss-preset-forms": "^0.0.6",
+    "@melt-ui/pp": "^0.1.4",
+    "@melt-ui/svelte": "^0.61.2",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.20.4",
+    "@unocss/extractor-svelte": "^0.57.3",
+    "drizzle-kit": "^0.20.2",
+    "prettier": "^2.8.0",
+    "prettier-plugin-svelte": "^2.10.1",
+    "svelte": "^4.0.5",
+    "svelte-check": "^3.4.3",
+    "svelte-sequential-preprocessor": "^2.0.1",
+    "typescript": "^5.0.0",
+    "unocss": "^0.57.3",
+    "vite": "^4.4.2",
+    "vitest": "^0.34.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "better-sqlite3": "^9.1.1",
+    "drizzle-orm": "^0.29.0"
+  }
 }

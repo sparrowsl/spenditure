@@ -1,18 +1,14 @@
-import { redirect } from '@sveltejs/kit';
+import { redirect } from "@sveltejs/kit";
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	throw redirect(302, '/');
+	throw redirect(302, "/");
 }
 
 /** @type {import('./$types').Actions} */
 export const actions = {
 	default: async ({ cookies }) => {
-		cookies.set('session', '', {
-			path: '/',
-			expires: new Date(0)
-		});
-
-		throw redirect(302, '/');
-	}
+		cookies.delete("session");
+		throw redirect(302, "/");
+	},
 };
