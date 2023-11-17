@@ -4,7 +4,7 @@ import { z } from "zod";
 import drizzle from "$lib/server/db/drizzle.js";
 import { usersTable } from "$lib/server/db/schema.js";
 
-const loginSchema = z.object({
+const registerSchema = z.object({
   id: z.string().optional(),
   email: z.string().email("Invalid email address"),
   password: z.string().min(4, "Password must be 4 or more letters"),
@@ -22,19 +22,31 @@ export const actions = {
     let user;
 
     try {
-      user = loginSchema.parse(form);
+      user = registerSchema.parse(form);
     } catch (/** @type {any} */ e) {
       const { fieldErrors: errors } = e.flatten();
       return fail(400, { message: Object.values(errors).map((err) => err[0])[0] });
     }
 
-    const data = (await drizzle
-      .select()
-      .from(usersTable)
-      .where(and(eq(usersTable.email, user.email), eq(usersTable.password, user.password))))[0];
+    // console.log(user)
 
-    if (!data) return fail(403,{ message: "Invalid email and password" });
-    console.log("after data check...")
+    const data = await drizzle
+      .insert(usersTable)
+      .values({id:crypto.randomUUID(),...user}).returning()
+      console.log(data)
+      // .where(and(eq(usersTable.email, user.email), eq(usersTable.password, user.password))))[0];
+
+      // console.log(data)
+    // if (!data) return fail(403,{ message: "Invalid email and password" });
+
+    // console.log("after data check...")
+    // return { data };
+    // const employee = await prisma.employee.findFirst({
+    // 	where: {
+    // 		email: username,
+    // 		password,
+    // 	},
+    // });
 
     // if (!employee) return { error: "Invalid login details, try again!!" };
 

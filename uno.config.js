@@ -1,4 +1,10 @@
-import { defineConfig, presetIcons, presetUno, presetWebFonts, transformerVariantGroup } from "unocss";
+import {
+	defineConfig,
+	presetIcons,
+	presetUno,
+	presetWebFonts,
+	transformerVariantGroup,
+} from "unocss";
 import extractorSvelte from "@unocss/extractor-svelte";
 import { presetForms } from "@julr/unocss-preset-forms";
 

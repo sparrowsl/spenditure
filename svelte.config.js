@@ -4,10 +4,10 @@ import adapter from "@sveltejs/adapter-auto";
 
 /** @type {import('@sveltejs/kit').Config}*/
 const config = {
-  kit: {
-    adapter: adapter(),
-  },
-  preprocess: sequence([preprocessMeltUI()])
+	kit: {
+		adapter: adapter(),
+	},
+	preprocess: sequence([preprocessMeltUI()]),
 };
 
 export default config;

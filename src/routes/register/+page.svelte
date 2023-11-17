@@ -27,12 +27,12 @@
 			};
 		}}
 	>
-		<legend class="font-bold text-center text-xl">Login</legend>
+		<legend class="font-bold text-center text-xl">Register</legend>
 
 		<fieldset class="flex flex-col p-10 gap-5">
 			<FormInput label="Email" type="email" name="email" />
 			<FormInput label="Password" type="password" name="password" />
-			<Button type="submit" class="bg-gray-600 bg-teal-500 text-white w-full p-2">Login</Button>
+			<Button type="submit" class="bg-gray-600 bg-teal-500 text-white w-full p-2">Register</Button>
 		</fieldset>
 	</form>
 </main>
