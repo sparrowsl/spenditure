@@ -3,7 +3,7 @@ import { recordsTable } from "$lib/server/db/schema.js";
 
 /** @type {import("./$types").PageServerLoad} */
 export async function load({}) {
-	const records = await drizzle.select().from(recordsTable);
+	const records = await drizzle.select().from(recordsTable).orderBy(recordsTable.created);
 
 	return { records };
 }

@@ -9,7 +9,9 @@
 	/** @type {import("./$types").ActionData} */
 	export let form;
 
-	$: {if (form?.message) notifier.danger(form?.message, 3000);}
+	$: {
+		if (form?.message) notifier.danger(form?.message, 3000);
+	}
 </script>
 
 <main class="h-screen bg-gray-200 grid place-content-center">
