@@ -9,6 +9,8 @@ export const usersTable = sqliteTable("users", {
 export const recordsTable = sqliteTable("records", {
 	id: text("id").notNull().primaryKey(),
 	name: text("name").notNull(),
+	email: text("email").notNull().unique(),
+	contact: text("contact").notNull().unique(),
 	address: text("address").notNull(),
 	city: text("city").notNull(),
 	created: text("created").notNull(),

@@ -7,6 +7,8 @@ export interface User {
 export interface Records {
 	id?: string;
 	name: string;
+	email: string;
+	contact: string;
 	address: string;
 	city: string;
 	created?: Date;
