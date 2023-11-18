@@ -11,5 +11,5 @@ export interface Record {
 	contact: string;
 	address: string;
 	city: string;
-	created?: Date;
+	created?: Date | string;
 }

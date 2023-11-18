@@ -5,6 +5,6 @@ export default {
 	breakpoints: true,
 	driver: "better-sqlite",
 	dbCredentials: {
-		url: "./",
+		url: "./sqlite.db",
 	},
 };
