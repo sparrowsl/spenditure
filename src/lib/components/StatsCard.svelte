@@ -1,11 +1,11 @@
 <script>
-	export let label;
+	export let label = "";
 	export let text = 0;
 </script>
 
-<figure class="rounded bg-white p-8 text-right shadow-md">
+<figure class="bg-white rounded shadow-md text-right p-8">
 	<figcaption>
-		<p class="text-sm font-light text-gray-600">{label}</p>
-		<h3 class="text-4xl font-bold text-gray-800">{text}</h3>
+		<p class="font-light text-sm text-gray-600">{label}</p>
+		<h3 class="font-bold text-4xl text-gray-800">{text}</h3>
 	</figcaption>
 </figure>

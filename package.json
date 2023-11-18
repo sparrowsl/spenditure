@@ -21,9 +21,11 @@
 		"@melt-ui/svelte": "^0.61.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
+		"@testing-library/svelte": "^4.0.5",
 		"@unocss/extractor-svelte": "^0.57.3",
 		"@vincjo/datatables": "^1.13.1",
 		"drizzle-kit": "^0.20.2",
+		"jsdom": "^22.1.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.1.0",
 		"svelte": "^4.0.5",
@@ -32,7 +34,7 @@
 		"typescript": "^5.0.0",
 		"unocss": "^0.57.3",
 		"vite": "^4.4.2",
-		"vitest": "^0.34.0"
+		"vitest": "^0.34.6"
 	},
 	"type": "module",
 	"dependencies": {
