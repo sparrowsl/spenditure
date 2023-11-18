@@ -28,12 +28,9 @@ export const actions = {
 			return fail(400, { message: Object.values(errors).map((err) => err[0])[0] });
 		}
 
-		const data = (
-			await drizzle
-				.select()
-				.from(usersTable)
-				.where(and(eq(usersTable.email, user.email), eq(usersTable.password, user.password)))
-		)[0];
+		const data = await drizzle.query.usersTable.findFirst({
+			where: and(eq(usersTable.email, user.email), eq(usersTable.password, user.password)),
+		});
 
 		if (!data) return fail(403, { message: "Invalid email and password" });
 		console.log("after data check...");

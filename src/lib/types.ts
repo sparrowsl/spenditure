@@ -4,7 +4,7 @@ export interface User {
 	password: string;
 }
 
-export interface Records {
+export interface Record {
 	id?: string;
 	name: string;
 	email: string;

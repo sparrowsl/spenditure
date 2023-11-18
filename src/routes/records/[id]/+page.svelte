@@ -10,7 +10,7 @@
 </script>
 
 <section>
-	<!-- <a href="/records" class="block">back</a> -->
+	<a href="/records" class="w-fit block underline">back</a>
 
 	<form
 		action=""
@@ -27,9 +27,9 @@
 		}}
 	>
 		<fieldset class="container grid py-10 px-20 gap-3">
-			<FormInput label="Full Name" name="name" bind:value={record.name} class="max-w-md" />
-			<FormInput label="Email" name="email" value={record.email} class="max-w-md" />
-			<FormInput label="Contact" name="contact" value={record.contact} class="max-w-md" />
+			<FormInput label="Full Name" name="name" value={record.name} class="max-w-md" />
+			<FormInput label="Email" type="email" name="email" value={record.email} class="max-w-md" />
+			<FormInput label="Contact" type="tel" name="contact" value={record.contact} class="max-w-md" />
 			<FormInput label="Address" name="address" value={record.address} class="max-w-md" />
 			<FormInput label="City" name="city" value={record.city} class="max-w-md" />
 			<FormInput label="Created At" name="created" value={record.created} disabled={true} class="max-w-md" />

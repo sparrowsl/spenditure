@@ -1,5 +1,4 @@
-import { error, fail, redirect } from "@sveltejs/kit";
-import { and, eq } from "drizzle-orm";
+import { fail } from "@sveltejs/kit";
 import { z } from "zod";
 import drizzle from "$lib/server/db/drizzle.js";
 import { usersTable } from "$lib/server/db/schema.js";
